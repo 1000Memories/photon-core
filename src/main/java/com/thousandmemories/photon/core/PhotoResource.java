@@ -37,7 +37,7 @@ public class PhotoResource {
     @Timed
     @CacheControl(immutable = true)
     public Response getPhoto(@PathParam("name") String name,
-                             @MatrixParam("w") WidthParam width,
+                             @MatrixParam("w") Integer width,
                              @MatrixParam("r") RotationParam rotateAngle,
                              @MatrixParam("c") RectangleParam crop) throws Exception {
         InputStream resultStream;
@@ -73,7 +73,7 @@ public class PhotoResource {
             }
 
             if (width != null) {
-                image = com.thousandmemories.photon.core.Processor.fitToWidth(image, width.get());
+                image = com.thousandmemories.photon.core.Processor.fitToWidth(image, width);
             }
 
             Iterator<ImageWriter> i = ImageIO.getImageWritersByMIMEType(mimeType);
