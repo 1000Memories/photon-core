@@ -13,6 +13,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
@@ -53,7 +54,7 @@ public class PhotoResourceTest extends ResourceTest {
 
     @Test
     public void test404() throws Exception {
-        when(photoProvider.getPhotoInputStream("doesntexist.jpg")).thenReturn(null);
+        when(photoProvider.getPhotoInputStream("doesntexist.jpg")).thenThrow(new FileNotFoundException());
 
         ClientResponse response = client().resource("/doesntexist.jpg").get(ClientResponse.class);
         assertThat(response.getStatus(), is(404));

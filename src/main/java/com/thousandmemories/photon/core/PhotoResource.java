@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URLConnection;
 import java.util.Iterator;
@@ -43,8 +44,10 @@ public class PhotoResource {
         InputStream resultStream;
 
 
-        InputStream imageStream = photoProvider.getPhotoInputStream(name);
-        if (imageStream == null) {
+        InputStream imageStream;
+        try {
+            imageStream = photoProvider.getPhotoInputStream(name);
+        } catch (FileNotFoundException fnfe) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
