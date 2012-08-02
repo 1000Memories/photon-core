@@ -13,6 +13,7 @@ import javax.imageio.stream.MemoryCacheImageOutputStream;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -43,10 +44,9 @@ public class PhotoResource {
                              @MatrixParam("c") RectangleParam crop) throws Exception {
         InputStream resultStream;
 
-
         InputStream imageStream;
         try {
-            imageStream = photoProvider.getPhotoInputStream(name);
+            imageStream = new BufferedInputStream(photoProvider.getPhotoInputStream(name));
         } catch (FileNotFoundException fnfe) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
