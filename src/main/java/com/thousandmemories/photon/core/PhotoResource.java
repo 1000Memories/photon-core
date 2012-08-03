@@ -58,13 +58,12 @@ public class PhotoResource {
 
         if (width != null || rotateAngle != null || crop != null) {
             BufferedImage image;
+            TimerContext readContext = readTimer.time();
             try {
-                TimerContext readContext = readTimer.time();
                 image = ImageIO.read(imageStream);
-                imageStream.close();
-                readContext.stop();
             } finally {
                 imageStream.close();
+                readContext.stop();
             }
 
             if (crop != null) {
