@@ -9,12 +9,12 @@ Read more about why we built it on our blog post (TODO: link blog post after it'
 
 
 ## PhotoResource
-`PhotoResource` takes a path like `/1234.jpg;w=200;r=180;c=130,60,200,200`, fetches the image named `1234.jpg` using a `PhotoProvider`, and then processes the image according the matrix parameters.
+`PhotoResource` takes a path like `/1234.jpg;w=200;r=180;c=130,60,200,300`, fetches the image named `1234.jpg` using a `PhotoProvider`, processes the image according the matrix parameters, and spits out the resulting image.
 
 ### Matrix parameters
 
 - `w=200`: Resizes the image to be 200px wide
-- `r=90`: Rotates the image 90 degrees clockwise (`90`, `180`, and `270` are the available rotation angles)
+- `r=180`: Rotates the image 90 degrees clockwise (`90`, `180`, and `270` are the available rotation angles)
 - `c=130,60,200,300`: Crops the image 130px from the left, 60px from the top, with a width of 200px and a height of 300px.
 
 
