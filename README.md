@@ -18,7 +18,7 @@ Read more about why we built it on our blog post (TODO: link blog post after it'
 - `c=130,60,200,300`: Crops the image 130px from the left, 60px from the top, with a width of 200px and a height of 300px.
 
 
-## `PhotoProvider`
+## PhotoProvider
 
 `PhotoResource`'s contructor takes an instance of `PhotoProvider`, which is responsible for finding the image based on the name it's given and returning an `InputStream` that will yield its contents.
 This will most often mean looking up a file in a blob store (e.g. S3 or a file system).
