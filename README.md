@@ -8,7 +8,7 @@ Photon-core provides a JAX-RS resource (`com.thousandmemories.photon.core.PhotoR
 Read more about why we built it on our blog post (TODO: link blog post after it's live) or see it in use in an example at https://github.com/1000Memories/photon-example
 
 
-## `PhotoResource`
+## PhotoResource
 `PhotoResource` takes a path like `/1234.jpg;w=200;r=180;c=130,60,200,200`, fetches the image named `1234.jpg` using a `PhotoProvider`, and then processes the image according the matrix parameters.
 
 ### Matrix parameters
